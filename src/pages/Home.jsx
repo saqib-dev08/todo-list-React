@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import '../pages/Home.css'
+import { Trash } from 'lucide-react';
+import { SquarePen } from 'lucide-react';
 
 const Home = () => {
     const [inpValue,setInpValue] = useState("")
@@ -18,11 +20,21 @@ const Home = () => {
     //     console.log("tssadsa")
     // }
     
-    const addTodo = () => {
+    const AddTodo = () => {
    
-        setTodos([...todos,inpValue])
+        setTodos([...todos,inpValue]);
+        console.log(todos,"test1")
+
+        return(
+            <div className="list">
+                <input type="checkbox" />
+                <p>{inpValue}</p>
+                <Trash />
+                <SquarePen />
+            </div>
+        )
     }
-    console.log(todos,"test")
+        console.log(todos,"test2")
 
 
     
@@ -38,7 +50,17 @@ const Home = () => {
           </div>
           <div className="todo-input">
             <input type="text" name="Add Todo" id="addTodo" placeholder='What have you planned today?' onChange={(e)=>setInpValue(e.target.value)} />
-            <button className='add-btn' onClick={addTodo}>Add Item</button>
+            <button className='add-btn' onClick={function(){setTodos([...todos,inpValue])
+        console.log(todos,"test1")
+
+        return(
+            <div className="list">
+                <input type="checkbox" />
+                <p>{inpValue}</p>
+                <Trash />
+                <SquarePen />
+            </div>
+        )}}>Add Item</button>
             </div>
         </div>
             
